@@ -10,10 +10,11 @@ function closeIfExist() {
 
 function popWindow(type) {
   closeIfExist();
+  // Set windows size here.
   let options = {
     type: 'popup',
     left: 100, top: 100,
-    width: 800, height: 475
+    width: 1200, height: 600
   };
   if (type === 'open') {
     options.url = 'window.html';

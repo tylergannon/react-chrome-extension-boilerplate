@@ -6,7 +6,7 @@ window.addEventListener('load', () => {
   const injectDOM = document.createElement('div');
   injectDOM.className = 'inject-react-example';
   injectDOM.style.margin = '0 auto';
-  injectDOM.style.width = '500px';
+  injectDOM.style.width = '1200px';
   document.body.appendChild(injectDOM);
 
   const createStore = require('../../../app/injectpage/store/configureStore');
