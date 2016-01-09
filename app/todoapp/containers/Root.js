@@ -5,7 +5,7 @@ import ChoosePlayer from './ChoosePlayer'
 
 import { createStore, combineReducers } from 'redux'
 import { Router, Route } from 'react-router'
-import { browserHistory } from 'react-router'
+import { hashHistory } from 'react-router'
 // import { createHistory } from 'history'
 import { syncReduxAndRouter, routeReducer } from 'redux-simple-router'
 
@@ -17,7 +17,7 @@ const reducer = combineReducers(Object.assign({}, todos, {
 const store = createStore(reducer)
 // const history = createHistory()
 
-syncReduxAndRouter(browserHistory, store)
+syncReduxAndRouter(hashHistory, store)
 
 class AppContainer extends Component {
   render() {
@@ -47,7 +47,7 @@ export default class Root extends Component {
     const { store } = this.props;
     return (
       <Provider store={store}>
-        <Router>
+        <Router history={hashHistory}>
           <Route path="/" component={AppContainer}>
             <Route path="todos" component={ChoosePlayer} />
           </Route>
