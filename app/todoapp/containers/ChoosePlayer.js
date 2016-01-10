@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Header from '../components/Header';
 import MainSection from '../components/MainSection';
 import * as TodoActions from '../actions/TodoActions';
-import Link from 'react-router'
+import {Link} from 'react-router'
 
 @connect(
   state => ({
@@ -27,7 +27,9 @@ export default class ChoosePlayer extends Component {
 
     return (
       <div>
-        <h1>Funkblaster</h1>
+        <Header addTodo={actions.addTodo} />
+        <Link to="/todos">Blah</Link>
+        {this.props.children}
       </div>
     );
   }

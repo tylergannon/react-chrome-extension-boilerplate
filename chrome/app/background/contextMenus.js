@@ -13,8 +13,8 @@ function popWindow(type) {
   // Set windows size here.
   let options = {
     type: 'popup',
-    left: 100, top: 100,
-    width: 1200, height: 600
+    left: 800, top: 100,
+    width: 600, height: 600
   };
   if (type === 'open') {
     options.url = 'window.html';

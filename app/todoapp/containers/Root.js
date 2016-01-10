@@ -9,15 +9,16 @@ import { hashHistory } from 'react-router'
 // import { createHistory } from 'history'
 import { syncReduxAndRouter, routeReducer } from 'redux-simple-router'
 
-import todos from '../reducers/todos';
+// import todos from '../reducers/todos';
 
-const reducer = combineReducers(Object.assign({}, todos, {
-  routing: routeReducer
-}))
+// const reducer = combineReducers(Object.assign({}, todos, {
+//   routing: routeReducer
+// }))
+import reducer from '../reducers';
 const store = createStore(reducer)
 // const history = createHistory()
 
-syncReduxAndRouter(hashHistory, store)
+// syncReduxAndRouter(hashHistory, store)
 
 class AppContainer extends Component {
   render() {
@@ -47,9 +48,9 @@ export default class Root extends Component {
     const { store } = this.props;
     return (
       <Provider store={store}>
-        <Router history={hashHistory}>
-          <Route path="/" component={AppContainer}>
-            <Route path="todos" component={ChoosePlayer} />
+        <Router>
+          <Route path="/" component={ChoosePlayer}>
+            <Route path="todos" component={AppContainer} />
           </Route>
         </Router>
       </Provider>
