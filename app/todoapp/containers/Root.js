@@ -1,13 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { Provider } from 'react-redux';
-import TodoApp from './TodoApp';
-import ChoosePlayer from './ChoosePlayer'
 
 import { createStore, combineReducers } from 'redux'
-import { Router, Route } from 'react-router'
 import { hashHistory } from 'react-router'
 // import { createHistory } from 'history'
 import { syncReduxAndRouter, routeReducer } from 'redux-simple-router'
+import routes from '../routes';
 
 // import todos from '../reducers/todos';
 
@@ -20,24 +18,6 @@ const store = createStore(reducer)
 
 // syncReduxAndRouter(hashHistory, store)
 
-class AppContainer extends Component {
-  render() {
-    return (
-      <div>
-        <TodoApp />
-        {
-          (() => {
-            if (process.env.DEVTOOLS) {
-              const DevTools = require('./DevTools');
-              return <DevTools />;
-            }
-          })()
-        }
-      </div>
-    );
-  }
-}
-
 export default class Root extends Component {
 
   static propTypes = {
@@ -48,11 +28,7 @@ export default class Root extends Component {
     const { store } = this.props;
     return (
       <Provider store={store}>
-        <Router>
-          <Route path="/" component={ChoosePlayer}>
-            <Route path="todos" component={AppContainer} />
-          </Route>
-        </Router>
+        {routes}
       </Provider>
     );
   }

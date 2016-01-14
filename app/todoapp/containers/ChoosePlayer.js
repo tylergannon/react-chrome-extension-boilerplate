@@ -29,6 +29,7 @@ export default class ChoosePlayer extends Component {
       <div>
         <Header addTodo={actions.addTodo} />
         <Link to="/todos">Blah</Link>
+        <Link to="/login">Login</Link>
         {this.props.children}
       </div>
     );
